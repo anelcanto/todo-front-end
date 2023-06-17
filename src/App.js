@@ -78,25 +78,31 @@ class App extends Component {
           TODO LIST
         </Row>
         <hr />
-
-        <FormControl
-          placeholder="add item . . . "
-          size="lg"
-          value={this.state.userInput}
-          onChange={
-            (item) => this.updateInput(item.target.value)
-          }
-          aria-label="add something"
-          aria-describedby="basic-addon2"
-        />
-        <Col md={{ span: 5, offset: 4 }}>
-          <InputGroup>
-            <InputGroup>
-
-              <Button variant="dark" className="mt-2" onClick={() => this.addItem()}>ADD</Button>
+        <Row>
+          <Col md={{ span: 5, offset: 4 }}>
+            <InputGroup className="mb-3">
+              <FormControl
+                placeholder="add item . . . "
+                size="lg"
+                value={this.state.userInput}
+                onChange={(item) =>
+                  this.updateInput(item.target.value)
+                }
+                aria-label="add something"
+                aria-describedby="basic-addon2"
+              />
+              <InputGroup>
+                <Button
+                  variant="dark"
+                  className="mt-2"
+                  onClick={() => this.addItem()}
+                >
+                  ADD
+                </Button>
+              </InputGroup>
             </InputGroup>
-          </InputGroup>
-        </Col>
+          </Col>
+        </Row>
       </>
     );
   }
