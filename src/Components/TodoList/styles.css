@@ -1,0 +1,22 @@
+.container {
+  margin-top: 50px;
+}
+
+.container .row:first-child {
+  /* color: #db4c3f; */
+}
+
+.container .btn-dark {
+  background-color: #db4c3f;
+  border-color: #db4c3f;
+}
+
+.container .list-group-item {
+  background-color: #f9f9f9;
+  color: #211f1f;
+}
+
+.container .list-group-item .btn-light {
+  color: #211f1f;
+  border-color: #211f1f;
+}
