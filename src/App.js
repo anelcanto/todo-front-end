@@ -1,47 +1,34 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import './custom.css';
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-
+import Container from "react-bootstrap/Container";
+import ListGroup from "react-bootstrap/ListGroup";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    // Setting up state
     this.state = {
       userInput: "",
       list: [],
     };
   }
 
-  // Set a user input value
-  updateInput(value) {
-    this.setState({
-      userInput: value,
-    });
-  }
-
   addItem() {
     if (this.state.userInput !== "") {
       const userInput = {
-        // Add a random id which is used to delete
         id: Math.random(),
-
-        // Add a user value to list
         value: this.state.userInput,
       };
 
-      console.log(userInput)
-
-      // Update list
       const list = [...this.state.list];
       list.push(userInput);
 
-      // reset state
       this.setState({
         list,
         userInput: "",
@@ -49,17 +36,31 @@ class App extends Component {
     }
   }
 
-  // Function to delete item from list use id to delete
+  updateInput(value) {
+    this.setState({
+      userInput: value,
+    });
+  }
+
   deleteItem(key) {
     const list = [...this.state.list];
-
-    // Filter values and leave value which we need to delete
     const updateList = list.filter((item) => item.id !== key);
 
-    // Update list in state
     this.setState({
       list: updateList,
     });
+  }
+
+  editItem = (index) => {
+    const todos = [...this.state.list];
+    const editedTodo = prompt('Edit the todo:');
+    if (editedTodo !== null && editedTodo.trim() !== '') {
+      let updatedTodos = [...todos]
+      updatedTodos[index].value = editedTodo
+      this.setState({
+        list: updatedTodos,
+      });
+    }
   }
 
 
@@ -95,7 +96,7 @@ class App extends Component {
                 />
                 <InputGroup>
                   <Button
-                    variant="dark"
+                    style={{ backgroundColor: '#db4c3f', color: 'white', borderColor: '#db4c3f' }}
                     className="mt-2"
                     onClick={() => this.addItem()}
                   >
