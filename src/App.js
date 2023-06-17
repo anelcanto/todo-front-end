@@ -4,6 +4,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 
 class App extends Component {
@@ -65,6 +66,19 @@ class App extends Component {
   render() {
     return (
       <>
+        <Row
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "3rem",
+            fontWeight: "bolder",
+          }}
+        >
+          TODO LIST
+        </Row>
+        <hr />
+
         <FormControl
           placeholder="add item . . . "
           size="lg"
